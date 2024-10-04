@@ -24,7 +24,7 @@ function Avatars() {
         <p className="font-light text-sm">User's currently editing this page.</p>
 
         <div className="flex -space-x-5">
-            {all.map((other, i) => (
+            {all.map((other) => (
                 <TooltipProvider key={other?.id + 1}>
                 <Tooltip>
                   <TooltipTrigger>

@@ -1,6 +1,5 @@
 "use client";
 
-import { log } from "console";
 import { usePathname } from "next/navigation";
 import {
     Breadcrumb,

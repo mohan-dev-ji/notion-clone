@@ -2,18 +2,14 @@
 
 import {
     Dialog,
-    DialogClose,
     DialogContent,
     DialogDescription,
-    DialogFooter,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
   } from "@/components/ui/dialog"
 import { FormEvent, useState, useTransition } from "react";
 import { Button } from "./ui/button";
-import { usePathname, useRouter } from "next/navigation";
-import { inviteUserToDocument } from "@/actions/actions";
 import { toast } from "sonner";
 import { Input } from "./ui/input";
 import * as Y from "yjs";
@@ -24,7 +20,6 @@ import Markdown from "react-markdown";
 function ChatToDocument({doc}: { doc: Y.Doc }) {
     const [input, setInput] = useState("");
     const [isOpen, setIsOpen] = useState(false);
-    const [email, setEmail] = useState("");
     const [isPending, startTransition] = useTransition();
     const [summary, setSummary] = useState("");
     const [question, setQuestion] = useState("");
