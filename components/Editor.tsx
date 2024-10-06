@@ -21,15 +21,21 @@ type EditorProps = {
     darkMode: boolean;
 };
 
+type UserInfo = {
+    name?: string;
+    email?: string;
+  };
+
 function BlockNote({ doc, provider, darkMode }: EditorProps) {
-    const userInfo = useSelf((me) => me.info);
+    // const userInfo = useSelf((me) => me.info);
+    const userInfo = useSelf((me) => me.info) as UserInfo;
     const editor: BlockNoteEditor = useCreateBlockNote({
         collaboration: {
             provider,
             fragment: doc.getXmlFragment("document-store"),
             user: {
-                name: userInfo?.name,
-                color: stringToColor(userInfo?.email),
+                name: userInfo?.name ?? 'Anonymous',
+                color: stringToColor(userInfo?.email ?? ''),
             },
         },
     });
